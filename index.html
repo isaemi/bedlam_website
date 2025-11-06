@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEDLAM | Survive the Noise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <style>
+      @keyframes flicker {
+        0%, 18%, 22%, 25%, 53%, 57%, 100% {
+          text-shadow:
+            0 0 4px #fff,
+            0 0 10px #fff,
+            0 0 18px #fff,
+            0 0 38px #00ffff,
+            0 0 70px #00ffff,
+            0 0 80px #00ffff,
+            0 0 94px #00ffff,
+            0 0 140px #00ffff;
+          opacity: 1;
+        }
+        20%, 24%, 55% {
+          text-shadow: none;
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes deep-flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      
+      @keyframes subtle-flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.95; }
+      }
+
+      @keyframes static-bg {
+        0% { background-position: 0 0; }
+        10% { background-position: -5% -10%; }
+        20% { background-position: -15% 5%; }
+        30% { background-position: 7% -25%; }
+        40% { background-position: 20% 25%; }
+        50% { background-position: -25% 10%; }
+        60% { background-position: 15% 5%; }
+        70% { background-position: 0 15%; }
+        80% { background-position: 25% 35%; }
+        90% { background-position: -10% 10%; }
+        100% { background-position: 0 0; }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.7;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Chakra Petch', sans-serif;
+        cursor: none;
+      }
+      
+      .font-display {
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      .text-glow-cyan {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+      .text-glow-magenta {
+        text-shadow: 0 0 5px #ff00aa, 0 0 10px #ff00aa, 0 0 20px #ff00aa, 0 0 40px #ff00aa;
+      }
+      .text-glow-amber {
+        text-shadow: 0 0 5px #ffb300, 0 0 10px #ffb300, 0 0 20px #ffb300, 0 0 40px #ffb300;
+      }
+      .flicker {
+        animation: flicker 1.5s infinite alternate;
+      }
+
+      .deep-flicker {
+        animation: deep-flicker 2s infinite ease-in-out;
+      }
+      
+      .subtle-flicker {
+        animation: subtle-flicker 3s infinite ease-in-out;
+      }
+
+      .static-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.3;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkIxMEU4NTQ2RTUxMTFFNkE4MzhGM0Q5Q0I4OEZDQjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkIxMEU4NTU2RTUxMTFFNkE4MzhGM0Q5Q0I4OEZDQjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2QjEwRTg1MjZFNTEtMUU2QTgzOEYzRDlDQjg4RkNCNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2QjEwRTg1MzZFNTEtMUU2QTgzOEYzRDlDQjg4RkNCNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQp3cwAAAB/SURBVHja7NwhCsAwDANB/P+njw0qWglpKGf2sGgVAQAAAAAAAACA/7iu6x7fz5ZlSbKSiKxJkizL84z7W1ar1fU8Tzv6Vq1WGyfLsmxlSRJnsbU/z/PznX/G0L593/d9F0Rk9fV6vRRFsfY8z19lWW52z/M8TdM0Td8YhgGAd3wEGAC5ZwaiAhk6TAAAAABJRU5ErkJggg==');
+        animation: static-bg 8s steps(10) infinite;
+        pointer-events: none;
+        z-index: 999;
+      }
+      
+      .scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+      .scroll-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+    </style>
+ 
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <audio id="bgm" loop>
+        <source src="/BEDLAM.wav" type="audio/wav">
+    </audio>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
