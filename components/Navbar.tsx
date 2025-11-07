@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { name: 'Home', id: 'hero' },
   { name: 'About', id: 'about' },
-  { name: 'Cards', id: 'gameplay' },
+  { name: 'Lore', id: 'gameplay' },
+  { name: 'Cards', id: 'cards' },
   { name: 'Gallery', id: 'gallery' },
-  { name: 'Logs', id: 'logs'},
-  { name: 'Mechanics', id: 'mechanics'},
-  { name: 'Contributions', id: 'credits' },
-  { name: 'Rules', id: '/rule'},
-  { name: 'Video', link: '/play' }
+  { name: 'Logs', link: '/log' },
+  { name: 'Rules', link: '/rulebook' },
+  { name: 'Video', link: '/play' },
+  { name: 'Contributions', id: 'credits' }
 ];
 
 interface NavLinkProps {
@@ -64,66 +64,48 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'}`}>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'
+      }`}
+    >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
 
-          <div className="text-2xl font-display uppercase tracking-widest text-glow-cyan deep-flicker">
-            
-            <a
-              href="#hero"
-              onClick={(e) => { 
-                e.preventDefault(); 
-                document.getElementById('hero')?.scrollIntoView({behavior: 'smooth'}) 
-              }}
-            >
-              <img
-                src="/public/image/logo.png"
-                className="hidden md:block h-10"
-              />
-            </a>
-          </div>
+        {/* center NAV */}
+        <div className="flex items-center justify-center h-20 relative">
 
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map(item => (
-              <NavLink 
-                key={item.name} 
-                {...item} 
-                onClick={() => {}} 
-              />
+              <NavLink key={item.name} {...item} onClick={() => {}} />
             ))}
           </div>
 
-          <div className="md:hidden">
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
-                  className="fixed top-5 right-5 text-cyan-400 border-2 border-cyan-400 rounded-full 
-           w-10 h-10 flex items-center justify-center text-2xl z-[200]"
-
-            >
-              {isOpen ? 'X' : '≡'}
-            </button>
-          </div>
+          {/* mobile button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden absolute right-5 top-1/2 -translate-y-1/2
+                       text-cyan-400 border-2 border-cyan-400 rounded-full 
+                       w-10 h-10 flex items-center justify-center text-2xl z-[200]"
+          >
+            {isOpen ? 'X' : '≡'}
+          </button>
 
         </div>
+
       </nav>
 
       <AnimatePresence>
-        
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            className="md:hidden absolute top-0 left-0 w-full h-screen bg-black/95 z-[100] flex flex-col items-center justify-center space-y-8"
+            className="md:hidden absolute top-0 left-0 w-full h-screen bg-black/95
+                       z-[100] flex flex-col items-center justify-center space-y-8"
           >
-            <div className="text-4xl font-display uppercase tracking-widest text-glow-cyan deep-flicker"> BEDRAM </div>
+            <div className="text-4xl mb-5 font-display uppercase tracking-widest text-glow-cyan deep-flicker"> BEDRAM </div>
             {navItems.map(item => (
-              <NavLink 
-                key={item.name} 
-                {...item} 
-                onClick={() => setIsOpen(false)} 
-              />
+              <NavLink key={item.name} {...item} onClick={() => setIsOpen(false)} />
             ))}
           </motion.div>
         )}

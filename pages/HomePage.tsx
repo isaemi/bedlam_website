@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
+import CardsSection from '../components/CardsSection';
 import GameplaySection from '../components/GameplaySection';
 import GallerySection from '../components/GallerySection';
 import CreditsSection from '../components/CreditsSection';
@@ -28,9 +29,14 @@ const HomePage: React.FC<HomePageProps> = ({ onEnter, soundOn, toggleSound, isIn
         <div id="gameplay" className="relative">
           <GameplaySection />
         </div>
+        <div id="cards" className="relative">
+          <CardsSection />
+        </div>
+        
         <div id="gallery" className="relative">
           <GallerySection />
         </div>
+
         <div id="credits" className="relative">
           <CreditsSection />
         </div>

@@ -46,11 +46,11 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
 
 const AboutSection = () => {
   const text =
-    "A thousand years after the collapse, Earth is no longer the same. Now called Bedlam, ninety five percent of the planet is covered by saltwater and storms that never end. People survive on floating cities called chukwa, built long ago by hands no one remembers. At the center of this world stands Babel, a massive alien tower that reaches up into the sky and down into the deep sea. You are the Amid, the leader of a fishermen’s chukwa, trying to guide your people through the next Pralay.";
+    "A thousand years after the collapse, Earth is no longer the same. Now called Bedlam, ninety five percent of the planet is covered by saltwater and storms that never end. People survive on floating cities called chukwa, built long ago by hands no one remembers. At the center of this world stands Babel, a massive alien tower that reaches up into the sky and down into the deep sea. You are the Amid, the leader of a fishermen chukwa, trying to guide your people through the next Pralay.";
 
   return (
     <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center">
-      
+
       {/* Title */}
       <AnimatedText
         text="The World of Bedlam"
@@ -83,42 +83,40 @@ const AboutSection = () => {
         <div className="w-full h-full bg-magenta-500 opacity-50 filter blur-sm deep-flicker"></div>
       </motion.div>
 
-      {/* WHAT / WHY / HOW Section */}
+      {/* 4 FEATURE BOXES */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
-        className="mt-5 w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6"
+        className="mt-5 w-full max-w-6xl grid grid-cols-1 md:grid-cols-4 gap-6"
       >
-        
-        {/* WHAT */}
+
+        {/* FEATURE 1 */}
         <div className="border-2 border-gray-700 rounded-lg p-8 text-gray-400 bg-black/30 backdrop-blur-sm">
-          <h3 className="mb-3 text-xl md:text-2xl font-mono text-amber-400 tracking-wide">
-            What?
-          </h3>
           <p className="text-lg leading-relaxed">
-            A survival strategy game set in a drowned world. You lead a chukwa and try to keep your people alive through storms, politics, and the coming Pralay.
+            A survival strategy game where you lead a chukwa through storms, raids, and politics. Your goal is simple. Keep your people alive.
           </p>
         </div>
 
-        {/* WHY */}
+        {/* FEATURE 2 */}
         <div className="border-2 border-gray-700 rounded-lg p-8 text-gray-400 bg-black/30 backdrop-blur-sm">
-          <h3 className="mb-3 text-xl md:text-2xl font-mono text-amber-400 tracking-wide">
-            Why?
-          </h3>
           <p className="text-lg leading-relaxed">
-            To explore how far hope can go when everything is falling apart. Every choice has weight. Every risk matters. Survival is never promised.
+            Hope is rare in Bedlam. Every turn forces a choice. Trust or betray. Risk or retreat. No path is safe and no plan lasts long.
           </p>
         </div>
 
-        {/* HOW */}
+        {/* FEATURE 3 */}
         <div className="border-2 border-gray-700 rounded-lg p-8 text-gray-400 bg-black/30 backdrop-blur-sm">
-          <h3 className="mb-3 text-xl md:text-2xl font-mono text-amber-400 tracking-wide">
-            How?
-          </h3>
           <p className="text-lg leading-relaxed">
-            Through turn based actions, resource decisions, diplomacy, raids, and the council of Redaz. You shape your path with careful timing and luck.
+            Take actions, explore ruins, trade, negotiate, or fight other players. Use your rakyat traits to your advantage. Time your moves to survive the next Pralay.
+          </p>
+        </div>
+
+        {/* FEATURE 4 */}
+        <div className="border-2 border-gray-700 rounded-lg p-8 text-gray-400 bg-black/30 backdrop-blur-sm">
+          <p className="text-lg leading-relaxed">
+            Every session plays out differently. Random events, council meetings, raids, and Kiseki rolls keep the world unstable and full of tension.
           </p>
         </div>
 

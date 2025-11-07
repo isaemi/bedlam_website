@@ -3,7 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
+import LogPage from './pages/LogPage';
 import PlayPage from './pages/PlayPage';
+import RulePage from './pages/RulePage';
 import CursorGlow from './components/CursorGlow';
 
 const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -73,6 +75,16 @@ function App() {
                   <PageTransition>
                       <HomePage onEnter={handleEnter} soundOn={soundOn} toggleSound={toggleSound} isInteracted={isInteracted} />
                   </PageTransition>
+              } />
+              <Route path="/log" element={
+                <PageTransition>
+                  <LogPage />
+                </PageTransition>
+              } />
+              <Route path="/rulebook" element={
+                <PageTransition>
+                  <RulePage />
+                </PageTransition>
               } />
               <Route path="/play" element={
                   <PageTransition>
