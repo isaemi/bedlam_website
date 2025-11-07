@@ -30,7 +30,7 @@ const HeroSection = () => {
         transition={{ duration: 2 }}
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/public/image/main.png')`,
+          backgroundImage: `url('/image/main.png')`,
           filter: "grayscale(100%) brightness(0.9)",
         }}
       />

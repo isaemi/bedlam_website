@@ -52,7 +52,7 @@ const GameplaySection = () => {
         <motion.div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{ 
-                backgroundImage: `url('/public/image/mechanics.png')`, 
+                backgroundImage: `url('/image/mechanics.png')`, 
                 filter: 'grayscale(1) brightness(0.2)',
                 y: y
             }}
