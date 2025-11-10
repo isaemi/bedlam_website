@@ -26,8 +26,8 @@ const FeatureCard = ({ icon: Icon, title, description, index }) => {
       }}
     >
       <Icon className="w-16 h-16 mb-4 text-amber-400 text-glow-amber" />
-      <h3 className="text-3xl font-display uppercase tracking-widest text-glow-amber mb-2">{title}</h3>
-      <p className="text-gray-400 text-lg">{description}</p>
+      <h3 className="text-3xl font-display uppercase tracking-widest text-glow-amber mb-6">{title}</h3>
+      <p className="w-[80%] font-bold text-gray-400 text-lg">{description}</p>
     </motion.div>
   );
 };

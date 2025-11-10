@@ -80,7 +80,7 @@ const HeroSection = () => {
         >
           <Link
             to="/rulebook"
-            className="px-10 mt-5 py-3 rounded-lg border-2 border-amber-400 bg-amber-400 
+            className="px-10 mt-5 py-3 rounded-lg border-2 font-subheader border-amber-400 bg-amber-400 
                        shadow-[0_0_20px_rgba(255,210,100,0.9)] text-black uppercase text-xl 
                        tracking-widest hover:shadow-[0_0_35px_rgba(255,220,100,0.9)]
                        transition-all duration-300"
@@ -90,7 +90,7 @@ const HeroSection = () => {
 
           <Link
             to="/play"
-            className="px-10 mt-5 py-3 rounded-lg border-2 border-amber-400 text-amber-400 
+            className="px-10 mt-5 py-3 rounded-lg border-2 font-subheader border-amber-400 text-amber-400 
                        uppercase text-xl tracking-widest hover:shadow-[0_0_35px_rgba(255,220,100,0.9)]
                        transition-all duration-300"
           >
